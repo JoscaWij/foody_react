@@ -10,10 +10,11 @@ export async function fetchRandomRecipes() {
   const data = await response.json();
 
   const result = data.meals.map((meal) => ({
+    id: meal.idMeal,
     title: meal.strMeal,
     category: meal.strCategory,
     area: meal.strArea,
-    instructionVideoLink: meal.strYoutube,
+    instructions: meal.strInstructions,
     imgSrc: meal.strMealThumb,
   }));
 

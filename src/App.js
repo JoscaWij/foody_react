@@ -10,9 +10,14 @@ function App() {
 
   useEffect(() => {
     async function getRecipes() {
-      const randomeRecipes = await fetchRandomRecipes();
-      console.log(randomeRecipes);
-      setRecipes(randomeRecipes);
+      const randomRecipes = [];
+      while (randomRecipes.length < 10) {
+        const recipe = await fetchRandomRecipes();
+        console.log(recipe);
+        randomRecipes.push(recipe[0]);
+      }
+      console.log(randomRecipes);
+      setRecipes(randomRecipes);
     }
     getRecipes();
   }, []);
@@ -25,18 +30,20 @@ function App() {
         <input placeholder="Search for recipe"></input>
       </header>
       <main>
-        <List>
-          {recipes?.map((recipe) => (
-            <ListItem
-              key={recipe.title}
-              title={recipe.title}
-              imgSrc={recipe.imgSrc}
-              instructionLink={recipe.instructionVideoLink}
-            >
-              <ExpandableRecipe />
-            </ListItem>
-          ))}
-        </List>
+        {recipes?.length === 10 && (
+          <List>
+            {recipes?.map((recipe) => (
+              <ListItem
+                key={recipe.id}
+                title={recipe.title}
+                imgSrc={recipe.imgSrc}
+                instructions={recipe.instructions}
+              >
+                <ExpandableRecipe />
+              </ListItem>
+            ))}
+          </List>
+        )}
       </main>
       <footer className="footer-copyright">
         <small>© mealAPI & JW</small>

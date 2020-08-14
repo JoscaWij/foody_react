@@ -1,15 +1,11 @@
 import React from "react";
 import "./ExpandableRecipe.css";
 
-function ExpandableRecipe({ mealTitle, videoLink }) {
-  const iframe = () => (
-    <iframe src={videoLink} title={`Instruction video of ${mealTitle}`} />
-  );
-
+function ExpandableRecipe({ mealTitle, instructions }) {
   return (
     <div className="expandableRecipe">
       <span>How to make: {mealTitle}</span>
-      {iframe()}
+      <p>{instructions}</p>
     </div>
   );
 }
