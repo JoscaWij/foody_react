@@ -26,8 +26,11 @@ function App() {
     <div className="app fullpage">
       <header className="headerSearch">
         <h1 className="appTitle">Foody</h1>
-        <span>Foody wie bei Mutti</span>
-        <input placeholder="Search for recipe"></input>
+        <span className="slogan">Foody wie bei Mutti</span>
+        <input
+          className="headerSearch_search"
+          placeholder="Search for recipe"
+        ></input>
       </header>
       <main>
         {recipes?.length === 10 && (

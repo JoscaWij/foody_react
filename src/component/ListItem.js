@@ -10,9 +10,11 @@ function ListItem({ title, imgSrc, instructions }) {
 
   return (
     <div className="listItem">
-      <img src={imgSrc} alt={title} />
-      <span>{title}</span>
-      <button onClick={handleClick}>Instructions</button>
+      <img className="listItem_img" src={imgSrc} alt={title} />
+      <span className="listItem_title">{title}</span>
+      <button className="listItem_button" onClick={handleClick}>
+        Instructions
+      </button>
       {open && (
         <ExpandableRecipe mealTitle={title} instructions={instructions} />
       )}

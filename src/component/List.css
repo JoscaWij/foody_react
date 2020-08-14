@@ -1,5 +1,6 @@
 .mealList {
   background-color: white;
   height: 100%;
-  padding: 1em;
+  padding: 0 1em;
+  overflow-y: auto;
 }
