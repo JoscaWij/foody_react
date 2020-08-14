@@ -8,5 +8,14 @@ export async function fetchRandomRecipes() {
   }
 
   const data = await response.json();
-  return data.meals[0];
+
+  const result = data.meals.map((meal) => ({
+    title: meal.strMeal,
+    category: meal.strCategory,
+    area: meal.strArea,
+    instructionVideoLink: meal.strYoutube,
+    imgSrc: meal.strMealThumb,
+  }));
+
+  return result;
 }
