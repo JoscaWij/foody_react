@@ -5,6 +5,8 @@ import ListItem from "./component/ListItem";
 import ExpandableRecipe from "./component/ExpandableRecipe";
 
 function App() {
+  const [recipes, setRecipes] = React.useState(null);
+
   return (
     <div className="app fullpage">
       <header className="headerSearch">
