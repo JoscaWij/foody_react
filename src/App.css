@@ -1,3 +1,21 @@
 .app {
-  background-color: goldenrod;
+  background: rgb(211, 148, 76);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.headerSearch {
+  display: grid;
+  place-items: center;
+  padding-bottom: 1em;
+}
+
+.footer-copyright {
+  text-align: center;
+  color: white;
+  padding: 0.5em;
+}
+
+.mealList {
+  background-color: black;
 }
