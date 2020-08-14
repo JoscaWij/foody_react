@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import List from "./component/List";
 import ListItem from "./component/ListItem";
+import ExpandableRecipe from "./component/ExpandableRecipe";
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
       </header>
       <main>
         <List>
-          <ListItem title="Recipe" />
+          <ListItem title="Recipe">
+            <ExpandableRecipe />
+          </ListItem>
         </List>
       </main>
       <footer className="footer-copyright">
