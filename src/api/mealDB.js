@@ -21,7 +21,8 @@ export async function fetchRandomRecipes() {
   return result;
 }
 
-export async function fetchRecipes({ query }) {
+export async function fetchRecipes(query) {
+  console.log(query);
   const response = await fetch(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
   );
@@ -32,7 +33,9 @@ export async function fetchRecipes({ query }) {
 
   const data = await response.json();
 
-  const result = data.meals.map((meal) => ({
+  console.log(data.meals);
+
+  const result = data.meals?.map((meal) => ({
     id: meal.idMeal,
     title: meal.strMeal,
     category: meal.strCategory,
