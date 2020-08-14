@@ -1,8 +1,9 @@
 import React from "react";
+import "./ExpandableRecipe.css";
 
 function ExpandableRecipe() {
   return (
-    <div>
+    <div className="expandableRecipe">
       RecipeInfo
       <ul>
         <li>Zutat1</li>
