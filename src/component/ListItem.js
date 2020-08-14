@@ -2,7 +2,7 @@ import React from "react";
 import "./ListItem.css";
 import ExpandableRecipe from "./ExpandableRecipe";
 
-function ListItem({ title }) {
+function ListItem({ title, imgSrc, instructionVideoLink }) {
   const [open, setOpen] = React.useState(false);
   const handleClick = () => {
     setOpen(!open);
@@ -10,10 +10,12 @@ function ListItem({ title }) {
 
   return (
     <div className="listItem">
-      <img src="#" alt={`Picture of ${title}`} />
+      <img src={imgSrc} alt={title} />
       <span>{title}</span>
-      <button onClick={handleClick}>Get Recipe</button>
-      {open && <ExpandableRecipe />}
+      <button onClick={handleClick}>Instructions</button>
+      {open && (
+        <ExpandableRecipe mealTitle={title} videoLink={instructionVideoLink} />
+      )}
     </div>
   );
 }

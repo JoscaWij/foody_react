@@ -26,9 +26,16 @@ function App() {
       </header>
       <main>
         <List>
-          <ListItem title="Recipe">
-            <ExpandableRecipe />
-          </ListItem>
+          {recipes?.map((recipe) => (
+            <ListItem
+              key={recipe.title}
+              title={recipe.title}
+              imgSrc={recipe.imgSrc}
+              instructionLink={recipe.instructionVideoLink}
+            >
+              <ExpandableRecipe />
+            </ListItem>
+          ))}
         </List>
       </main>
       <footer className="footer-copyright">
