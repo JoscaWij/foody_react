@@ -11,7 +11,7 @@ function App() {
         <span>Foody wie bei Mutti</span>
         <input placeholder="Search for recipe"></input>
       </header>
-      <main className="mealList">
+      <main>
         <List>
           <ListItem title="Recipe" />
         </List>
