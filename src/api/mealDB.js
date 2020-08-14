@@ -20,9 +20,8 @@ export async function fetchRandomRecipes() {
 
   return result;
 }
-
+/* 
 export async function fetchRecipes(query) {
-  console.log(query);
   const response = await fetch(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
   );
@@ -45,4 +44,4 @@ export async function fetchRecipes(query) {
   }));
 
   return result;
-}
+} */
