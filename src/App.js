@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import List from "./component/List";
 import ListItem from "./component/ListItem";
 import ExpandableRecipe from "./component/ExpandableRecipe";
+import { fetchRandomRecipes } from "./api/mealDB";
 
 function App() {
   const [recipes, setRecipes] = React.useState(null);
+
+  useEffect(() => {
+    async function getRecipes() {
+      const randomeRecipes = await fetchRandomRecipes();
+      console.log(randomeRecipes);
+      setRecipes(randomeRecipes);
+    }
+    getRecipes();
+  }, []);
 
   return (
     <div className="app fullpage">
