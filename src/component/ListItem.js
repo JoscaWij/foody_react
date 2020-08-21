@@ -1,6 +1,7 @@
 import React from "react";
 import ExpandableRecipe from "./ExpandableRecipe";
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 function ListItem({ title, imgSrc, instructions }) {
   const [open, setOpen] = React.useState(false);
@@ -10,11 +11,11 @@ function ListItem({ title, imgSrc, instructions }) {
 
   return (
     <ListItemStyled>
-      <img className="listItem_img" src={imgSrc} alt={title} />
-      <span className="listItem_title">{title}</span>
-      <button className="listItem_button" onClick={handleClick}>
-        Instructions
-      </button>
+      <Link to={`/recipe/${title}`}>
+        <img src={imgSrc} alt={title} />
+        <span>{title}</span>
+      </Link>
+      <button onClick={handleClick}>Instructions</button>
       {open && (
         <ExpandableRecipe mealTitle={title} instructions={instructions} />
       )}
@@ -25,12 +26,21 @@ function ListItem({ title, imgSrc, instructions }) {
 export default ListItem;
 
 const ListItemStyled = styled.div`
+  border-bottom: solid var(--bg-color) 1px;
+  padding: 0.5em 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  border-bottom: solid var(--bg-color) 1px;
-  padding: 0.5em 0;
+
+  > * {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    flex-grow: 1;
+    text-align: center;
+  }
 
   *:last-child {
     border: none;
@@ -46,6 +56,7 @@ const ListItemStyled = styled.div`
   span {
     font-size: 2em;
     font-family: "Covered By Your Grace", cursive;
+    flex-grow: 1;
   }
 
   button {
@@ -57,6 +68,7 @@ const ListItemStyled = styled.div`
     transition: 0.3s;
     color: white;
     font-weight: bolder;
+    flex-grow: 0;
   }
 
   button:hover {

@@ -2,6 +2,13 @@ import React from "react";
 import SearchBar from "./component/SearchBar";
 import styled from "@emotion/styled";
 import MainRecipeList from "./pages/MainRecipeList";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import MainRecipeDetails from "./pages/MainRecipeDetails";
 
 function App() {
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -12,20 +19,32 @@ function App() {
   };
 
   return (
-    <AppContainer>
-      <header>
-        <h1>Foody</h1>
-        <span>Foody wie bei Mutti</span>
-        <SearchBar
-          value={searchQuery}
-          onChange={(query) => handleSearch(query)}
-        />
-      </header>
-      <MainRecipeList />
-      <footer>
-        <small>© mealAPI & JW</small>
-      </footer>
-    </AppContainer>
+    <Router>
+      <AppContainer>
+        <header>
+          <h1>Foody</h1>
+          <span>Foody wie bei Mutti</span>
+          <SearchBar
+            value={searchQuery}
+            onChange={(query) => handleSearch(query)}
+          />
+        </header>
+        <Switch>
+          <Route path="/recipes">
+            <MainRecipeList />
+          </Route>
+          <Route path="/recipe">
+            <MainRecipeDetails />
+          </Route>
+          <Route path="/">
+            <Redirect to="/recipes" />
+          </Route>
+        </Switch>
+        <footer>
+          <small>© mealAPI & JW</small>
+        </footer>
+      </AppContainer>
+    </Router>
   );
 }
 
