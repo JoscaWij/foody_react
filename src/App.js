@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import "./App.css";
 import List from "./component/List";
 import ListItem from "./component/ListItem";
 import ExpandableRecipe from "./component/ExpandableRecipe";
 import { fetchRandomRecipes } from "./api/mealDB";
 import SearchBar from "./component/SearchBar";
+import styled from "@emotion/styled";
 
 function App() {
   const [recipes, setRecipes] = React.useState(null);
@@ -29,10 +29,10 @@ function App() {
   };
 
   return (
-    <div className="app fullpage">
-      <header className="headerSearch">
-        <h1 className="appTitle">Foody</h1>
-        <span className="slogan">Foody wie bei Mutti</span>
+    <AppContainer>
+      <header>
+        <h1>Foody</h1>
+        <span>Foody wie bei Mutti</span>
         <SearchBar
           value={searchQuery}
           onChange={(query) => handleSearch(query)}
@@ -54,11 +54,46 @@ function App() {
           </List>
         )}
       </main>
-      <footer className="footer-copyright">
+      <footer>
         <small>© mealAPI & JW</small>
       </footer>
-    </div>
+    </AppContainer>
   );
 }
 
 export default App;
+
+const AppContainer = styled.div`
+  --bg-color: rgb(211, 148, 76);
+  --bg-color-dark: rgb(139, 87, 27);
+  background: var(--bg-color);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  header {
+    display: grid;
+    place-items: center;
+    padding-bottom: 1em;
+    background-color: var(--bg-color);
+  }
+
+  header h1 {
+    font-size: 3em;
+    margin-bottom: 0.3em;
+    font-family: "Covered By Your Grace", cursive;
+  }
+
+  header span {
+    font-weight: bolder;
+    padding: 0 0 1em 0;
+    font-size: 1.5em;
+    font-family: "Covered By Your Grace", cursive;
+  }
+
+  footer {
+    background: var(--bg-color);
+    text-align: center;
+    color: white;
+    padding: 0.5em;
+  }
+`;
