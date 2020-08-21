@@ -3,9 +3,10 @@ import List from "../component/List";
 import ListItem from "../component/ListItem";
 import ExpandableRecipe from "../component/ExpandableRecipe";
 import useFetch from "../hooks/useFetch";
+import { fetchRandomRecipes } from "../api/mealDB";
 
 function MainRecipeList() {
-  const { recipes } = useFetch();
+  const { recipes } = useFetch(fetchRandomRecipes);
 
   return (
     <main>
