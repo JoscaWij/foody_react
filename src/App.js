@@ -7,6 +7,7 @@ import { fetchRandomRecipes } from "./api/mealDB";
 
 function App() {
   const [recipes, setRecipes] = React.useState(null);
+  const [searchQuery, setSearchQuery] = React.useState("");
 
   useEffect(() => {
     async function getRecipes() {
