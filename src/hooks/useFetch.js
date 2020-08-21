@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { fetchRandomRecipes } from "../api/mealDB";
 
-function useFetch(fetchFunction) {
-  const [recipes, setRecipes] = React.useState(null);
+function useFetch() {
+  const [recipes, setRecipes] = useState(null);
 
   useEffect(() => {
     async function getRecipes() {
@@ -15,4 +16,8 @@ function useFetch(fetchFunction) {
     }
     getRecipes();
   }, []);
+
+  return { recipes };
 }
+
+export default useFetch;
