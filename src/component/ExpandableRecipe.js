@@ -2,6 +2,8 @@ import React from "react";
 import styled from "@emotion/styled";
 
 const ExpandableDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   flex-basis: 100%;
   background: var(--bg-color);
   border-radius: 20px;
@@ -11,6 +13,7 @@ const ExpandableDiv = styled.div`
 
   span {
     font-weight: bold;
+    flex-basis: 100%;
   }
 `;
 
