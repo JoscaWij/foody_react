@@ -6,10 +6,11 @@ import useFetch from "../hooks/useFetch";
 import { fetchRandomRecipes } from "../api/mealDB";
 
 function MainRecipeList() {
-  const { recipes } = useFetch(fetchRandomRecipes, 10);
+  const { recipes, loading } = useFetch(fetchRandomRecipes, 10);
 
   return (
     <main>
+      {loading && <div>Calling my Mum to ask ...</div>}
       <List>
         {recipes?.map((recipe) => (
           <ListItem
