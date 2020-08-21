@@ -1,20 +1,19 @@
 import { useState, useEffect } from "react";
 
-function useFetch(fetchFunction) {
+function useFetch(fetchFunction, arrayLength = 1) {
   const [recipes, setRecipes] = useState(null);
 
   useEffect(() => {
     async function getRecipes() {
       const randomRecipes = [];
-      while (randomRecipes.length < 10) {
+      while (randomRecipes.length < arrayLength) {
         const recipe = await fetchFunction();
         randomRecipes.push(recipe[0]);
       }
-      console.log(randomRecipes);
       setRecipes(randomRecipes);
     }
     getRecipes();
-  }, []);
+  }, [fetchFunction, arrayLength]);
 
   return { recipes };
 }
