@@ -23,12 +23,20 @@ function App() {
     getRecipes();
   }, []);
 
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    console.log(query);
+  };
+
   return (
     <div className="app fullpage">
       <header className="headerSearch">
         <h1 className="appTitle">Foody</h1>
         <span className="slogan">Foody wie bei Mutti</span>
-        <SearchBar onChange={(query) => setSearchQuery(query)} />
+        <SearchBar
+          value={searchQuery}
+          onChange={(query) => handleSearch(query)}
+        />
       </header>
       <main>
         {recipes?.length === 10 && (

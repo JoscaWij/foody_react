@@ -11,10 +11,11 @@ const SearchInput = styled.input`
   font-size: 1em;
 `;
 
-function SearchBar({ onChange }) {
+function SearchBar({ value, onChange }) {
   return (
     <SearchInput
       placeholder="Search for recipe"
+      value={value}
       onChange={(event) => onChange(event.target.value)}
     />
   );
