@@ -8,6 +8,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import MainRecipeDetails from "./pages/MainRecipeDetails";
 
 function App() {
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -33,7 +34,7 @@ function App() {
             <MainRecipeList />
           </Route>
           <Route path="/recipe">
-            <div>Details</div>
+            <MainRecipeDetails />
           </Route>
           <Route path="/">
             <Redirect to="/recipes" />
