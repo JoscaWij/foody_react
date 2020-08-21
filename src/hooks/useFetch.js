@@ -15,7 +15,11 @@ function useFetch(fetchFunction, arrayLength = 1) {
           const recipe = await fetchFunction();
           randomRecipes.push(recipe[0]);
         }
-        setRecipes(randomRecipes);
+        const filteredRecipes = randomRecipes.filter(
+          (recipe, index) =>
+            randomRecipes.findIndex((other) => other.id === recipe.id) === index
+        );
+        setRecipes(filteredRecipes);
       } catch (error) {
         console.error(error);
         setError(true);

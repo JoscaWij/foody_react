@@ -9,7 +9,7 @@ export async function fetchRandomRecipes() {
 
   const data = await response.json();
 
-  const structuredResult = data.meals.map((meal) => ({
+  const result = data.meals.map((meal) => ({
     id: meal.idMeal,
     title: meal.strMeal,
     category: meal.strCategory,
@@ -17,11 +17,6 @@ export async function fetchRandomRecipes() {
     instructions: meal.strInstructions,
     imgSrc: meal.strMealThumb,
   }));
-
-  const result = structuredResult.filter(
-    (result, index) =>
-      structuredResult.findIndex((other) => other.id === result.id) === index
-  );
 
   return result;
 }
