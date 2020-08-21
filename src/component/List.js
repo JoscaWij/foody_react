@@ -1,8 +1,15 @@
 import React from "react";
-import "./List.css";
+import styled from "@emotion/styled";
 
-function List(props) {
-  return <div className="mealList">{props.children}</div>;
+const ListContainer = styled.div`
+  background-color: white;
+  height: 100%;
+  padding: 0 1em;
+  overflow: auto;
+`;
+
+function List({ children }) {
+  return <ListContainer>{children}</ListContainer>;
 }
 
 export default List;
