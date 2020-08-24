@@ -39,7 +39,7 @@ export async function fetchRandomRecipes() {
 
     randomRecipes.push(data.meals[0]);
   }
-  const recipes = randomRecipes.map((meal) => ({
+  const recipeData = randomRecipes.map((meal) => ({
     id: meal.idMeal,
     title: meal.strMeal,
     category: meal.strCategory,
@@ -48,10 +48,10 @@ export async function fetchRandomRecipes() {
     imgSrc: meal.strMealThumb,
   }));
 
-  /*   const recipes = recipeData.filter(
+  const recipes = recipeData.filter(
     (recipe, index) =>
       recipeData.findIndex((other) => other.id === recipe.id) === index
-  ); */
+  );
 
   console.log(recipes);
 
